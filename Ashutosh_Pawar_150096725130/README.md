@@ -5,6 +5,14 @@ Assignment 2 — Ashutosh Pawar (150096725130)
 A hospital management REST API built with Express and MongoDB, with local authentication
 (Passport + bcryptjs), plus a React frontend that consumes the API.
 
+## Live demo
+
+- Frontend (Vercel): https://hospital-webapp-iota.vercel.app
+- API (Render): https://assignment-2-hospital-management-api-fnfm.onrender.com
+
+The API runs on Render's free tier, so the first request after a period of inactivity
+can take up to a minute while the server wakes up.
+
 ## Tech stack
 
 **Backend (`server/`)**
@@ -36,7 +44,7 @@ Ashutosh_Pawar_150096725130/
 │   │   ├── authThang.js      # /register, /login
 │   │   └── hospitalThang.js  # /hospitals CRUD
 │   ├── requests.http         # sample requests
-│   └── server.js             # app entry, port 4000
+│   └── server.js             # app entry, port 4000 (or $PORT)
 └── frontend/
     └── hospital-webapp/
         └── src/
@@ -69,7 +77,14 @@ npm run dev
 ```
 
 Vite prints the dev URL (default `http://localhost:5173`). The frontend talks to
-`http://localhost:4000`, set in `src/api.js`.
+`http://localhost:4000` by default, set in `src/api.js`.
+
+## Deployment
+
+- **Backend** on Render: root directory `server`, build `npm install`, start `npm start`.
+  Set `MONGO_URI` to a MongoDB Atlas connection string. Render provides `PORT`.
+- **Frontend** on Vercel: root directory `frontend/hospital-webapp`. Set `VITE_API_URL`
+  to the Render API URL. `vercel.json` rewrites all routes to `index.html` for React Router.
 
 ## Data models
 
