@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/itm_hospital_api");
+mongoose.connect(
+  process.env.MONGO_URI || "mongodb://localhost:27017/itm_hospital_api"
+);
 const db = mongoose.connection;
 
 db.on("connected", () => {
